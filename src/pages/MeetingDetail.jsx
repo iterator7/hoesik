@@ -61,7 +61,7 @@ function MeetingDetail() {
 
     return (
         <div className="app">
-            <AppHeader title="회식 상세" backTo="/" />
+            <AppHeader title="회식 상세" />
 
             <div className="main">
                 <div className="card">
