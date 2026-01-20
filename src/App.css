@@ -282,4 +282,5 @@ hr {
     position: relative;
     z-index: 1;
     margin-top: 6px;
+    width: 100%;
 }
