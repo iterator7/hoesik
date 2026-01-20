@@ -5,6 +5,7 @@ function AppHeader({ title = '회식 관리', showBack = true }) {
 
     return (
         <div className="header">
+            {/* 홈 */}
             <button
                 type="button"
                 className="btn secondary"
@@ -14,20 +15,33 @@ function AppHeader({ title = '회식 관리', showBack = true }) {
                 🏠
             </button>
 
+            {/* 타이틀 */}
             <div className="header-title">{title}</div>
 
-            {showBack ? (
+            {/* 우측 버튼 영역 */}
+            <div style={{ display: 'flex', gap: '6px' }}>
+                {/* 분기 예산 설정 */}
                 <button
                     type="button"
                     className="btn secondary"
-                    onClick={() => navigate(-1)}
-                    aria-label="뒤로"
+                    onClick={() => navigate('/quarter')}
+                    aria-label="분기 예산 설정"
                 >
-                    ←
+                    ⚙️
                 </button>
-            ) : (
-                <div style={{ width: '44px' }} />
-            )}
+
+                {/* 뒤로 */}
+                {showBack && (
+                    <button
+                        type="button"
+                        className="btn secondary"
+                        onClick={() => navigate(-1)}
+                        aria-label="뒤로"
+                    >
+                        ←
+                    </button>
+                )}
+            </div>
         </div>
     );
 }
