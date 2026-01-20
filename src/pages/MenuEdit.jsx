@@ -96,7 +96,7 @@ function MenuEdit() {
 
     return (
         <div className="app">
-            <AppHeader title="메뉴 편집" />
+            <AppHeader title="메뉴 편집" backTo={`/meeting/${currentMeeting.id}`} />
 
             <div className="main">
                 {/* 식당 정보 */}

@@ -1,49 +1,54 @@
 import { useNavigate } from 'react-router-dom';
 
-function AppHeader({ title = '회식 관리', showBack = true }) {
+function AppHeader({
+    title = '회식 관리',
+    showBack = true,
+    showQuarter = true
+}) {
     const navigate = useNavigate();
 
     return (
-        <div className="header">
-            {/* 뒤로 */}
+        <header className="header">
+            {/* 왼쪽: 뒤로 */}
+            <div className="header-side left">
                 {showBack && (
                     <button
                         type="button"
-                        className="btn secondary"
-                        onClick={() => navigate(-1)}
+                        className="header-btn"
+                        onClick={() => navigate('/')}
                         aria-label="뒤로"
                     >
                         ←
                     </button>
                 )}
+            </div>
 
-            {/* 타이틀 */}
-            <div className="header-title">{title}</div>
+            {/* 중앙: 타이틀 (절대 고정) */}
+            <h1 className="header-title">{title}</h1>
 
-            {/* 우측 버튼 영역 */}
-            <div style={{ display: 'flex', gap: '6px' }}>
-                {/* 홈 */}
+            {/* 오른쪽: 홈 → 예산 설정 */}
+            <div className="header-side right">
                 <button
                     type="button"
-                    className="btn secondary"
+                    className="header-btn"
                     onClick={() => navigate('/')}
                     aria-label="홈"
                 >
                     🏠
                 </button>
-                {/* 분기 예산 설정 */}
-                <button
-                    type="button"
-                    className="btn secondary"
-                    onClick={() => navigate('/quarter')}
-                    aria-label="분기 예산 설정"
-                >
-                    ⚙️
-                </button>
 
-                
+                {showQuarter && (
+                    <button
+                        type="button"
+                        className="header-btn"
+                        onClick={() => navigate('/quarter')}
+                        aria-label="분기 예산 설정"
+                    >
+                        💰
+                    </button>
+                )}
             </div>
-        </div>
+        </header>
     );
 }
 
