@@ -265,6 +265,9 @@ hr {
 
 .date-wrapper {
     position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
 .date-placeholder {
@@ -280,6 +283,9 @@ hr {
 
 .date-input {
     position: relative;
+    display: block;
+    max-width: 100%;
+    min-width: 0;
     z-index: 1;
     margin-top: 6px;
     width: 100%;
