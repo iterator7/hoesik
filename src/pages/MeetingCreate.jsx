@@ -86,13 +86,64 @@ function MeetingCreate() {
 
             <div className="main">
                 <div className="card">
-                    <label className="sub">날짜</label>
+                    <div className="sub">날짜</div>
+
+                    <button
+                        type="button"
+                        className="btn bg-none"
+                        style={{
+                            width: '100%',
+                            marginTop: '6px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between'
+                        }}
+                        onClick={() => {
+                            const el = dateRef.current;
+                            if (!el) return;
+
+                            // 크롬/모바일: 달력 직접 호출
+                            if (typeof el.showPicker === 'function') {
+                                el.showPicker();
+                            } else {
+                                // 사파리/구형 대응
+                                el.focus();
+                                el.click();
+                            }
+                        }}
+                    >
+                        <span>
+                            {date
+                                ? (() => {
+                                    const d = new Date(date);
+                                    const y = d.getFullYear();
+                                    const m = String(d.getMonth() + 1).padStart(2, '0');
+                                    const day = String(d.getDate()).padStart(2, '0');
+                                    return `${y}.${m}.${day}`;
+                                })()
+                                : '날짜 선택'}
+                        </span>
+                        <span aria-hidden>📅</span>
+                    </button>
+
+                    {/* 실제 date input (숨김) */}
                     <input
                         ref={dateRef}
                         type="date"
                         value={date}
                         onChange={e => setDate(e.target.value)}
-                        style={{ width: '100%', marginTop: '6px' }}
+                        tabIndex={-1}
+                        aria-hidden
+                        style={{
+                            position: 'absolute',
+                            width: '1px',
+                            height: '1px',
+                            padding: 0,
+                            margin: '-1px',
+                            overflow: 'hidden',
+                            clip: 'rect(0 0 0 0)',
+                            border: 0
+                        }}
                     />
                 </div>
 

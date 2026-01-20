@@ -180,6 +180,13 @@ input[readonly] {
     cursor: not-allowed;
 }
 
+.btn.bg-none {
+    color: #111827;
+    font-weight: normal;
+    background: none;
+    border: 1px solid #d1d5db;
+}
+
 /* =========================
    Lists
 ========================= */
