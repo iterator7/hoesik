@@ -3,9 +3,18 @@ import { useNavigate } from 'react-router-dom';
 function AppHeader({
     title = '회식 관리',
     showBack = true,
-    showQuarter = true
+    showQuarter = true,
+    backTo = null
 }) {
     const navigate = useNavigate();
+
+    const handleBack = () => {
+        if (backTo) {
+            navigate(backTo);
+        } else {
+            navigate('/');
+        }
+    };
 
     return (
         <header className="header">
@@ -15,7 +24,7 @@ function AppHeader({
                     <button
                         type="button"
                         className="header-btn"
-                        onClick={() => navigate('/')}
+                        onClick={handleBack}
                         aria-label="뒤로"
                     >
                         ←
@@ -23,10 +32,10 @@ function AppHeader({
                 )}
             </div>
 
-            {/* 중앙: 타이틀 (절대 고정) */}
+            {/* 중앙 */}
             <h1 className="header-title">{title}</h1>
 
-            {/* 오른쪽: 홈 → 예산 설정 */}
+            {/* 오른쪽 */}
             <div className="header-side right">
                 <button
                     type="button"
