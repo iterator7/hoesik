@@ -93,7 +93,7 @@ function MeetingList() {
                     </p>
                 )}
 
-                {meetings.map(meeting => {
+                {[...meetings].reverse().map(meeting => {
                     const used = meeting.usedAmount || 0;
 
                     const isMeetingOver =
