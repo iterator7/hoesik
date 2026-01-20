@@ -5,32 +5,7 @@ function AppHeader({ title = '회식 관리', showBack = true }) {
 
     return (
         <div className="header">
-            {/* 홈 */}
-            <button
-                type="button"
-                className="btn secondary"
-                onClick={() => navigate('/')}
-                aria-label="홈"
-            >
-                🏠
-            </button>
-
-            {/* 타이틀 */}
-            <div className="header-title">{title}</div>
-
-            {/* 우측 버튼 영역 */}
-            <div style={{ display: 'flex', gap: '6px' }}>
-                {/* 분기 예산 설정 */}
-                <button
-                    type="button"
-                    className="btn secondary"
-                    onClick={() => navigate('/quarter')}
-                    aria-label="분기 예산 설정"
-                >
-                    ⚙️
-                </button>
-
-                {/* 뒤로 */}
+            {/* 뒤로 */}
                 {showBack && (
                     <button
                         type="button"
@@ -41,6 +16,32 @@ function AppHeader({ title = '회식 관리', showBack = true }) {
                         ←
                     </button>
                 )}
+
+            {/* 타이틀 */}
+            <div className="header-title">{title}</div>
+
+            {/* 우측 버튼 영역 */}
+            <div style={{ display: 'flex', gap: '6px' }}>
+                {/* 홈 */}
+                <button
+                    type="button"
+                    className="btn secondary"
+                    onClick={() => navigate('/')}
+                    aria-label="홈"
+                >
+                    🏠
+                </button>
+                {/* 분기 예산 설정 */}
+                <button
+                    type="button"
+                    className="btn secondary"
+                    onClick={() => navigate('/quarter')}
+                    aria-label="분기 예산 설정"
+                >
+                    ⚙️
+                </button>
+
+                
             </div>
         </div>
     );

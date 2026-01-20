@@ -117,7 +117,7 @@ function MeetingDetail() {
                                 {menu.quantity || 0}
                             </div>
                             <button
-                                className="btn"
+                                className="btn secondary"
                                 onClick={() =>
                                     updateQuantity(index, 1)
                                 }
