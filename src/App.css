@@ -263,15 +263,23 @@ hr {
     width: 100%;
 }
 
-.date-input {
-    appearance: none;
-    -webkit-appearance: none;
+.date-wrapper {
+    position: relative;
+}
 
-    width: 100%;
+.date-placeholder {
+    position: absolute;
+    inset: 0;
     padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    background: #ffffff;
+    display: flex;
+    align-items: center;
+    color: #9ca3af;
+    pointer-events: none;
     font-size: 14px;
-    cursor: pointer;
+}
+
+.date-input {
+    position: relative;
+    z-index: 1;
+    margin-top: 6px;
 }

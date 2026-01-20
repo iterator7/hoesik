@@ -16,9 +16,10 @@ function MeetingCreate() {
     const [peopleCount, setPeopleCount] = useState(quarter.peopleCount || '');
     const [date, setDate] = useState('');
 
-    // ✅ 신규: 식당명/링크를 생성 단계에서 받기
     const [restaurantName, setRestaurantName] = useState('');
     const [restaurantUrl, setRestaurantUrl] = useState('');
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     const generateMeetingName = () => {
         if (!date) return '';
@@ -88,12 +89,21 @@ function MeetingCreate() {
                 <div className="card">
                     <label className="sub">날짜</label>
 
-                    <input
-                        type="date"
-                        value={date}
-                        onChange={e => setDate(e.target.value)}
-                        className="date-input"
-                    />
+                    <div className="date-wrapper">
+                        {isIOS && !date && (
+                            <span className="date-placeholder">
+                                날짜 선택
+                            </span>
+                        )}
+
+                        <input
+                            ref={dateRef}
+                            type="date"
+                            value={date}
+                            onChange={e => setDate(e.target.value)}
+                            className="date-input"
+                        />
+                    </div>
                 </div>
 
                 <div className="card">
